@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.9 (Projekt4)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (Projekt4)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (django-webcam-rest-api-main)" project-jdk-type="Python SDK" />
 </project>

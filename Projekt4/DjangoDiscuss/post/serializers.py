@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from post import models
-from community import serializers
+from community.serializers import CommunitySerializer
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -13,23 +13,23 @@ class CommentSerializer(serializers.ModelSerializer):
             'content',
             'date_added',
             'user_added',
-            'post'
+            'post',
         ]
 
 
 class PostSerializer(serializers.ModelSerializer):
     date_added = serializers.DateField(read_only=True, format='%d %B %Y')
     comments = CommentSerializer(read_only=True, many=True, source='comment_set')
-    community = CommentSerializer(read_only=True)
+    community = CommunitySerializer(read_only=True)
 
     class Meta:
         model = models.Post
         fields = [
             'id',
-            'community'
             'title',
             'description',
             'date_added',
             'user_added',
-            'comments'
+            'community',
+            'comments',
         ]
