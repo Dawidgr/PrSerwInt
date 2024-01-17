@@ -25,7 +25,7 @@ def user_detail(request, id):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-@api_view(['POST'])
+@api_view(['PUT'])
 def user_follow(request, id):
     try:
         user = CustomUser.objects.get(pk=id)
@@ -33,7 +33,7 @@ def user_follow(request, id):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     serializer = FollowUserSerializer(data=request.data)
-    if request.method == 'POST':
+    if request.method == 'PUT':
         if serializer.is_valid():
             user_to_follow = serializer.validated_data['user_to_follow']
             if user_to_follow in user.followed_users.all():

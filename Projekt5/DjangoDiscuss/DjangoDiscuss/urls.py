@@ -23,4 +23,5 @@ urlpatterns = [
     path('post/', include('post.urls')),
     path('community/', include('community.urls')),
     path('user/', include('user.urls')),
+    path('message/', include('message.urls'))
 ]

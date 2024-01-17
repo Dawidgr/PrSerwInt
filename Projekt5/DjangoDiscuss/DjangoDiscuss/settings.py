@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'post',
     'community',
     'user',
+    'message'
 ]
 
 MIDDLEWARE = [

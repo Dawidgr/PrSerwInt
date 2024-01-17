@@ -10,10 +10,11 @@ class Post(models.Model):
     date_added = models.DateField(auto_now=True)
     user_added = models.ForeignKey(to=settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)
     in_community = models.ForeignKey(Community, on_delete=models.CASCADE)
+    is_moderated = models.BooleanField(default=False)
 
 
     def __str__(self):
-        return self.title
+        return f"{self.id}: {self.title}"
 
 
 class Comment(models.Model):
@@ -23,4 +24,4 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Comment by {self.user_added.username} on {self.post.title}"
+        return f"{self.id}: Comment by {self.user_added.username} on {self.post.title}"

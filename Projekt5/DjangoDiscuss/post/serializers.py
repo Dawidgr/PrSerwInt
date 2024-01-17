@@ -31,5 +31,6 @@ class PostSerializer(serializers.ModelSerializer):
             'date_added',
             'user_added',
             'in_community',
-            'comments',
+            'is_moderated',
+            'comments'
         ]
