@@ -20,7 +20,7 @@ class CommentSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     date_added = serializers.DateField(read_only=True, format='%d %B %Y')
     comments = CommentSerializer(read_only=True, many=True, source='comment_set')
-    in_community = serializers.PrimaryKeyRelatedField(queryset=Community.objects.all())
+    in_community = serializers.PrimaryKeyRelatedField(queryset=Community.objects.all(), allow_null=True)
 
     class Meta:
         model = models.Post

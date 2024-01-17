@@ -26,7 +26,7 @@ def community_detail(request, id):
     try:
         community = Community.objects.get(pk=id)
     except Community.DoesNotExist:
-        return Resposne(status=status.HTTP_404_NOT_FOUND)
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
         serializer = CommunitySerializer(community)
@@ -38,4 +38,4 @@ def community_detail(request, id):
             return Response(serializer.data)
     elif request.method == 'DELETE':
         community.delete()
-        return Resposne(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT)
